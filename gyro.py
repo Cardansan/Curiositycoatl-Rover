@@ -38,18 +38,14 @@ address = 0x68       # via i2cdetect
  
 # Necessary to activate the module
 bus.write_byte_data(address, power_mgmt_1, 0)
- 
-print
 
 gyroskop_xout = read_word_2c(0x43)
 gyroskop_yout = read_word_2c(0x45)
 gyroskop_zout = read_word_2c(0x47)
  
-print "gyro_x: ", ("%5d" % gyroskop_xout), " scaleGX: ", (gyroskop_xout / 131)
-print "gyro_y: ", ("%5d" % gyroskop_yout), " scaleGY:", (gyroskop_yout / 131)
-print "gyro_z: ", ("%5d" % gyroskop_zout), " scaleGZ:", (gyroskop_zout / 131)
- 
-print
+print "gyro_x:", (gyroskop_xout / 131)
+print "gyro_y:", (gyroskop_yout / 131)
+print "gyro_z:", (gyroskop_zout / 131)
 
 beschleunigung_xout = read_word_2c(0x3b)
 beschleunigung_yout = read_word_2c(0x3d)
@@ -59,9 +55,9 @@ beschleunigung_xout_skaliert = beschleunigung_xout / 16384.0
 beschleunigung_yout_skaliert = beschleunigung_yout / 16384.0
 beschleunigung_zout_skaliert = beschleunigung_zout / 16384.0
  
-print "accel_x: ", ("%6d" % beschleunigung_xout), " scaleAX: ", beschleunigung_xout_skaliert
-print "accel_y: ", ("%6d" % beschleunigung_yout), " scaleAY: ", beschleunigung_yout_skaliert
-print "accel_z: ", ("%6d" % beschleunigung_zout), " scaleAZ: ", beschleunigung_zout_skaliert
+print "accel_x:", beschleunigung_xout_skaliert
+print "accel_y:", beschleunigung_yout_skaliert
+print "accel_z:", beschleunigung_zout_skaliert
  
-print "X Rotation: " , get_x_rotation(beschleunigung_xout_skaliert, beschleunigung_yout_skaliert, beschleunigung_zout_skaliert)
-print "Y Rotation: " , get_y_rotation(beschleunigung_xout_skaliert, beschleunigung_yout_skaliert, beschleunigung_zout_skaliert)
+print "X Rotation:" , get_x_rotation(beschleunigung_xout_skaliert, beschleunigung_yout_skaliert, beschleunigung_zout_skaliert)
+print "Y Rotation:" , get_y_rotation(beschleunigung_xout_skaliert, beschleunigung_yout_skaliert, beschleunigung_zout_skaliert)
