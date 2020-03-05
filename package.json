@@ -2,7 +2,13 @@
     "name": "Curiositycoatl-Rover",
     "description": "A Node-RED Project",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-dashboard": "2.19.4",
+        "node-red-node-base64": "0.2.1",
+        "node-red-node-pi-gpio": "1.0.6",
+        "node-red-node-pi-gpiod": "0.0.13",
+        "node-red-node-smooth": "0.1.2"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
